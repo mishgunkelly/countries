@@ -118,6 +118,10 @@ Edge peek(PriorityQueue* pq)
     return pq->items[0];
 }
 
+int isEmpty(PriorityQueue* pq)
+{
+    return pq->size == 0;
+}
 
 
 

@@ -1,0 +1,1 @@
+int God(char *inputFilePath, char *outputFilePath);

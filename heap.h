@@ -20,3 +20,4 @@ void freePriorityQueue(PriorityQueue* pq);
 void enqueue(PriorityQueue* pq, Edge value);
 Edge dequeue(PriorityQueue* pq);
 Edge peek(PriorityQueue* pq);
+int isEmpty(PriorityQueue* pq);
