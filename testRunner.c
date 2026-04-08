@@ -27,7 +27,15 @@ bool runTest(const char *inputFilePath, const char *resultOutputFilePath, const 
     bool testPassed = true;
     while (fgets(expectedLine, sizeof(expectedLine), expectedFile) &&
            fgets(resultLine, sizeof(resultLine), resultFile)) {
-        if (strcmp(expectedLine, resultLine) != 0) {
+        
+        int diff = 0;
+        for (int i = 0; expectedLine[i] != '\0' && resultLine[i] != '\0'; i++) {
+            if (expectedLine[i] != resultLine[i]) {
+                diff++;
+                printf("Difference at line: %sExpected: %sGot: %s\n%d\n%c\n%c\n", expectedLine, expectedLine, resultLine, i, expectedLine[i], resultLine[i]);
+            }
+        }
+        if (diff > 0) {
             testPassed = false;
             break;
         }
@@ -42,12 +50,12 @@ bool runTest(const char *inputFilePath, const char *resultOutputFilePath, const 
 
 void testRunner() {
     printf("Running tests...\n");
-    const char *testCases[][3] = {
-        {"GPTests\\inputs\\input1.txt", "Results\\output1.txt", "GPTests\\outputs\\output1.txt"},
-        {"GPTests\\inputs\\input2.txt", "Results\\output2.txt", "GPTests\\outputs\\output2.txt"},
-        {"GPTests\\inputs\\input3.txt", "Results\\output3.txt", "GPTests\\outputs\\output3.txt"},
-        {"GPTests\\inputs\\input4.txt", "Results\\output4.txt", "GPTests\\outputs\\output4.txt"},
-        {"GPTests\\inputs\\input5.txt", "Results\\output5.txt", "GPTests\\outputs\\output5.txt"},
+    const char *testCases[][3] = { 
+        {"D:\\C++\\Countries\\GPTests\\inputs\\input1.txt", "D:\\C++\\Countries\\Results\\output1.txt", "D:\\C++\\Countries\\GPTests\\outputs\\output1.txt"},
+        {"D:\\C++\\Countries\\GPTests\\inputs\\input2.txt", "D:\\C++\\Countries\\Results\\output2.txt", "D:\\C++\\Countries\\GPTests\\outputs\\output2.txt"},
+        {"D:\\C++\\Countries\\GPTests\\inputs\\input3.txt", "D:\\C++\\Countries\\Results\\output3.txt", "D:\\C++\\Countries\\GPTests\\outputs\\output3.txt"},
+        {"D:\\C++\\Countries\\GPTests\\inputs\\input4.txt", "D:\\C++\\Countries\\Results\\output4.txt", "D:\\C++\\Countries\\GPTests\\outputs\\output4.txt"},
+        {"D:\\C++\\Countries\\GPTests\\inputs\\input5.txt", "D:\\C++\\Countries\\Results\\output5.txt", "D:\\C++\\Countries\\GPTests\\outputs\\output5.txt"},
     };
 
     for (int i = 0; i < 5; i++) {

@@ -1,1 +1,1 @@
-int God(char *inputFilePath, char *outputFilePath);
+int God(const char *inputFilePath, const char *outputFilePath);

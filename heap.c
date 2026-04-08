@@ -35,7 +35,7 @@ static void heapifyUp(PriorityQueue* pq, int index)
         heapifyUp(pq, (index - 1) / 2);
     }
 }
-static int heapifyDown(PriorityQueue* pq, int index)
+static void heapifyDown(PriorityQueue* pq, int index)
 {
     int smallest = index;
     int left = 2 * index + 1;
