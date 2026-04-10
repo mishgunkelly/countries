@@ -8,7 +8,7 @@
 
 bool runTest(const char *inputFilePath, const char *resultOutputFilePath, const char *expectedOutputFilePath)
 {
-    God(inputFilePath, resultOutputFilePath); // Example call to the function being tested
+    solution(inputFilePath, resultOutputFilePath); // Example call to the function being tested
     FILE* expectedFile = fopen(expectedOutputFilePath, "r");
     if (!expectedFile) {
         fprintf(stderr, "Could not open test files\n");
